@@ -1,0 +1,16 @@
+body
+{
+	background-image: linear-gradient(rgba(255, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
+                  url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKfM9NMA01o20Bfu2uX4JA1lMfi6ZSzV5qVbWIBH62NKdpNBwATxYw0rD_z07d2_SsFao&usqp=CAU");
+}
+p
+{
+	font-size: 120px;
+}
+h1
+{
+	font-size: 160px;
+}
+html
+{
+	color:rgb(0,255,255);
