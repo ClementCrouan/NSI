@@ -1,2 +1,2 @@
 # NSI
-Chapitre de NSI prempière et terminale
+Chapitre de NSI première et terminale
