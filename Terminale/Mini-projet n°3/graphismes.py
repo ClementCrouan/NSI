@@ -1,6 +1,5 @@
 import tkinter as t
 import pygame as p  
-from win32api import GetSystemMetrics
 
 class Tkinter:
 
@@ -8,9 +7,8 @@ class Tkinter:
         self.window = t.Tk()
         self.window.title("Le jeu de la vie")
         self.window.config(bg = "#23272a")
-        screenRes = [GetSystemMetrics(0) - 20,GetSystemMetrics(1) - 20]
-        self.window.geometry(str(screenRes[0]) + "x" + str(screenRes[1]))#87CEEB  <- cyan
-        self.window.minsize(screenRes[0],screenRes[1])
+#87CEEB  <- cyan
+        self.window.attributes('-fullscreen', True)
         self.nothing = False
         self.option1 = False
         self.option2 = False
@@ -88,7 +86,7 @@ class Pygame:
     def __init__(self) -> None:
         p.init()
         self.window = p.display.set_mode((1280,720))
-        p.display.set_caption('Morpion')
+        p.display.set_caption('Jeu de la vie')
         self.window.fill(256)
         self.nothing = False
         self.option1 = False

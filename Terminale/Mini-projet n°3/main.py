@@ -4,7 +4,7 @@ import rewards as r
 import save as s
 
 class Main:
-    def __init__(self, engine = False, rewards = r.Rewards(234234, 232323)) -> None:
+    def __init__(self, engine = True, rewards = r.Rewards(234234, 232323)) -> None:
         """Initialise les variables de la classe"""
         save = s.Save("money.csv")
         data = save.read()
@@ -26,22 +26,20 @@ class Main:
             
         else :
             self.window.game(tree.question, None, None, tree.result, self.rewards.flashbacks)
-        if not self.window.nothing :
-            if self.window.option1:
-                self.game(tree.left, tree)
-            elif self.window.option2 and tree.right is not None:
-                self.game(tree.right, tree)
-            if self.window.option3 :
-                if previous is None:
-                    print(2)
-                    self.game(tree)
-                elif self.rewards.flashbacks > 0:
-                    self.rewards.add_flashbacks(-1)
-                    print(1)
-                    self.game(previous)
-                else:
-                    print(0)
-        else:
+        if self.window.option1:
+            self.game(tree.left, tree)
+        elif self.window.option2 and tree.right is not None:
+            self.game(tree.right, tree)
+        elif self.window.option3 :
+            if previous is None:
+                self.game(tree)
+            elif self.rewards.flashbacks > 0:
+                print("ratio")
+                self.rewards.add_flashbacks(-1)
+                self.game(previous)
+            else : 
+                self.game(tree, previous)
+        else : 
             self.menu()
         
     def choose_character(self):
@@ -107,6 +105,7 @@ class Main:
             self.shop()
         elif self.window.option3 :
             self.check_switch_engine()
-
+        elif self.window.nothing:
+            self.window.quit()
 ALLTHEGAME_RATIOCLEMENT = Main()
 ALLTHEGAME_RATIOCLEMENT.menu()
